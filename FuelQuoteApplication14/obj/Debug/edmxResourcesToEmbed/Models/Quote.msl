@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FuelQuoteDBModel2StoreContainer" CdmEntityContainer="FuelQuoteDBEntities5">
+    <EntitySetMapping Name="Quotes">
+      <EntityTypeMapping TypeName="FuelQuoteDBModel2.Quote">
+        <MappingFragment StoreEntitySet="Quote">
+          <ScalarProperty Name="Quote_id" ColumnName="Quote_id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Gallons_requested" ColumnName="Gallons_requested" />
+          <ScalarProperty Name="Delivery_date" ColumnName="Delivery_date" />
+          <ScalarProperty Name="Total_amount" ColumnName="Total_amount" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="price_per_gallon" ColumnName="price_per_gallon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,125 @@
+﻿@model FuelQuoteApplication14.Models.UserCredential
+@{
+    ViewBag.Title = "LoginView";
+}
+<!DOCTYPE html>
+<html>
+<div style="">
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                width: 40%;
+                padding-left: 30%;
+                padding-top: 7%;
+                background-image: url(~/images/images.jpeg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            form {
+                border: 3px solid #000000;
+                background-color: #FFFFFFAA;
+            }
+
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            button {
+                background-color: #04AA6D;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+
+                button:hover {
+                    opacity: 0.70;
+                    background-color: #FFFFFF color:#04AA6D
+                }
+
+            a.hover {
+                color: red;
+            }
+
+
+            .cancelbtn {
+                width: auto;
+                padding: 10px 18px;
+                background-color: #f44336;
+            }
+
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+
+
+            img.avatar {
+                width: 40%;
+                border-radius: 50%;
+            }
+
+            .heading {
+                text-align: center;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            span.psw {
+                float: right;
+                padding-top: 16px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h2 class="heading">Login Form</h2>
+
+       
+@using (Html.BeginForm("Autherize","Login",FormMethod.Post))
+{
+    <form>
+            <div class="container">
+                <label for="uname">@Html.LabelFor(model => model.Username)</label>
+                
+                <div type="text"> @Html.EditorFor(model => model.Username)</div>
+                
+
+                <label for="psw">@Html.LabelFor(model => model.Password)</label>
+                <div>@Html.EditorFor(model => model.Password)</div>
+
+                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+
+                <button type="submit" name="name" value="Login">Submit</button>
+                <button type="reset" name="name" value="Clear">Clear</button>
+                <label>
+                     
+
+            </div>
+
+            <div class="cancelbtn">
+                @Html.ActionLink("Register", "RegisterView", "Login")
+            </div>
+        
+        </form>
+}
+    </body>
+</div>
+</html>
+
+
+
