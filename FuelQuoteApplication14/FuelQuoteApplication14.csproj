@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\QuoteController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +223,8 @@
     <Content Include="Views\Client\Client_layout.cshtml" />
     <Content Include="Views\Client\Home.cshtml" />
     <Content Include="Views\Client\View_profile.cshtml" />
+    <Content Include="Views\Quote\Generate_quote.cshtml" />
+    <Content Include="Views\Quote\Quote_history.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
