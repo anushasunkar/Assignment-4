@@ -1,4 +1,4 @@
-﻿@model FuelQuoteApplication14.Models.Quote 
+@model FuelQuoteApplication14.Models.Quote
 
 @{
     ViewData["Title"] = "QuoteGeneratorView";
@@ -101,39 +101,39 @@
     {
 
 
-        <p>Please fill in the below details to generate quote</p>
+    <p>Please fill in the below details to generate quote</p>
 
-        <label for="gallonsrequested"><b>Gallons Requested</b></label>
-        <br>
-        <input type="number" placeholder="Enter number of gallons required" name="gallonsrequested" id="gallonsrequested1" onChange="totalamount();" min="1" required>
-        <div hidden>@Html.TextBoxFor(model => model.Gallons_requested, new { @type = "number", @id = "gallonsrequested" })</div>
+    <label for="gallonsrequested"><b>Gallons Requested</b></label>
+    <br>
+    <input type="number" placeholder="Enter number of gallons required" name="gallonsrequested" id="gallonsrequested1" onChange="totalamount();" min="1" required>
+    <div hidden>@Html.TextBoxFor(model => model.Gallons_requested, new { @type = "number", @id = "gallonsrequested" })</div>
 
-        <span asp-validation-for="GallonsRequested" class="text-danger"></span>
-        <br>
-        <label for="deliveryaddress"><b>Delivery Address</b></label>
+    <span asp-validation-for="GallonsRequested" class="text-danger"></span>
+    <br>
+    <label for="deliveryaddress"><b>Delivery Address</b></label>
 
-        @Html.TextBoxFor(model => model.Address)
+    @Html.TextBoxFor(model => model.Address)
 
-        <label for="deliverydate"><b>Delivery Date</b></label>
+    <label for="deliverydate"><b>Delivery Date</b></label>
       //  <br /><div hidden> @Html.TextBoxFor(model => model.Delivery_date, new { @type = "datetime", @id = "delivery_date" })</div>
-      <br>
-        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = DateTime.Now.AddDays(7), @class = "form-control datepicker" } })
+    <br>
+    @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = DateTime.Now.AddDays(7), @class = "form-control datepicker" } })
 
         //<input type="date" id="delivery_date1" name="date" class="form-control datepicker" required>
 
-        <label for="suggestedpricepergallon"><b>Suggested Price / gallon</b></label>
-        <br>
-        <input type="number" name="suggestedpricepergallon" id="suggestedpricepergallon1" value="2" onChange="totalamount();" readonly>
-        <div hidden>@Html.TextBoxFor(model => model.price_per_gallon, new { @type = "number", @id = "suggestedpricepergallon" })</div>
-        <br>
+    <label for="suggestedpricepergallon"><b>Suggested Price / gallon</b></label>
+    <br>
+    <input type="number" name="suggestedpricepergallon" id="suggestedpricepergallon1" value="2" onChange="totalamount();" readonly>
+    <div hidden>@Html.TextBoxFor(model => model.price_per_gallon, new { @type = "number", @id = "suggestedpricepergallon" })</div>
+    <br>
 
-        <label for="totalamountdue"><b>Total Amount Due</b></label>
-        <div>@Html.TextBoxFor(model => model.Total_amount, new { @type = "number", @id = "totalamountdue", @readonly = "readonly" })</div>
+    <label for="totalamountdue"><b>Total Amount Due</b></label>
+    <div>@Html.TextBoxFor(model => model.Total_amount, new { @type = "number", @id = "totalamountdue", @readonly = "readonly" })</div>
 
 
 
-        <br>
-        <button type="submit" class="registerbtn">Generate Quote</button>
+    <br>
+    <button type="submit" class="registerbtn">Generate Quote</button>
 
     }
     <script>

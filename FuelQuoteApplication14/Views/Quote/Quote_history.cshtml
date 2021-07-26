@@ -1,4 +1,4 @@
-﻿@model IQueryable<FuelQuoteApplication14.Models.Quote>
+@model IQueryable<FuelQuoteApplication14.Models.Quote>
 
 @{
     ViewBag.Title = "QuoteHistoryView";
@@ -44,14 +44,14 @@
         @foreach (var i in Model)
         {
 
-            <tr>
-                <td>@Html.DisplayFor(Modeli => i.Quote_id)</td>
-                <td>@Html.DisplayFor(Modeli => i.Gallons_requested)</td>
-                <td>@Html.DisplayFor(Modeli => i.Delivery_date)</td>
-                <td>@Html.DisplayFor(Modeli => i.Address)</td>
-                <td>@Html.DisplayFor(Modeli => i.Total_amount)</td>
+        <tr>
+            <td>@Html.DisplayFor(Modeli => i.Quote_id)</td>
+            <td>@Html.DisplayFor(Modeli => i.Gallons_requested)</td>
+            <td>@Html.DisplayFor(Modeli => i.Delivery_date)</td>
+            <td>@Html.DisplayFor(Modeli => i.Address)</td>
+            <td>@Html.DisplayFor(Modeli => i.Total_amount)</td>
 
-            </tr>
+        </tr>
 
         }
     </table>

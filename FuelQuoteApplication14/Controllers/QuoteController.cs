@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,7 +30,7 @@ namespace FuelQuoteApplication14.Controllers
             q1.Total_amount = q.Total_amount;
             q1.Id = (int)System.Web.HttpContext.Current.Session["userID"];
             q1.price_per_gallon = q.price_per_gallon;
-            if(db.Quote.OrderByDescending(p => p.Quote_id).FirstOrDefault()!=null)
+            if (db.Quote.OrderByDescending(p => p.Quote_id).FirstOrDefault() != null)
             {
                 q1.Quote_id = db.Quote.OrderByDescending(p => p.Quote_id).FirstOrDefault().Quote_id + 1;
             }
@@ -54,3 +54,4 @@ namespace FuelQuoteApplication14.Controllers
         }
     }
 }
+ss
