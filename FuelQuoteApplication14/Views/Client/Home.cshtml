@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "HomeView";
+    Layout = "~/Views/Client/Client_home_layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" language="javascript">
+            function DisableBackButton() {
+                window.history.forward()
+            }
+            DisableBackButton();
+            window.onload = DisableBackButton;
+            window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+            window.onunload = function () { void (0) }
+</script>
+<style>
+    h3, body, img, p {
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p {
+        padding-left: 100px;
+        padding-right: 100px
+    }
+
+    h3 {
+        padding-left: 625px
+    }
+</style>
+<body>
+    <div>
+
+        <img alt="error" src="~/images/images.jpeg" width="600" height="300">
+
+    </div>
+
+
+    <p>
+        We are a best-in class, low-cost operator with assets in the United Stated, Middle East, Africa and Latin America, applying technologies to drive operational excellence
+        and leveraging our global leadership in carbon management to advance our business.
+    </p>
+
+</body>
+</html>

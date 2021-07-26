@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-size: 28px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover {
+                    background-color: #111;
+                }
+
+        .active {
+            background-color: #4CAF50;
+        }
+
+        html, body, iframe {
+            margin: 0px;
+            padding: 0px;
+            border: none;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logout {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDIV">
+        <ul>
+            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="Home1"?"active nav-item":"nav-item")">@Html.ActionLink("Home", "Home", "Login", new { area = "" }, new { @class = "nav-link" })</li>
+            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="ShowHistory"?"active nav-item":"nav-item")">@Html.ActionLink("Quote History", "Quote_History", "Quote", new { area = "" }, new { @class = "nav-link" })</li>
+            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="ViewProfile"?"active nav-item":"nav-item")">@Html.ActionLink("Profile", "ViewProfile", "Client", new { area = "" }, new { @class = "nav-link" })</li>
+            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="GetQuote"?"active nav-item":"nav-item")">@Html.ActionLink("Quote Generator", "Generate_quote", "Quote", new { area = "" }, new { @class = "nav-link" })</li>
+            <li class="logout"><a href="@Url.Action("Logout","Login")">Logout</a></li>
+
+        </ul>
+    </div>
+
+
+    <script>
+    // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }</script>
+
+    <div class="container">
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>

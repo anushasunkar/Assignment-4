@@ -217,6 +217,11 @@
     <None Include="packages.config" />
     <Content Include="Views\Login\LoginView.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Client\Client_home_layout.cshtml" />
+    <Content Include="Views\Client\Client_info.cshtml" />
+    <Content Include="Views\Client\Client_layout.cshtml" />
+    <Content Include="Views\Client\Home.cshtml" />
+    <Content Include="Views\Client\View_profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="Views\Client\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
