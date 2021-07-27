@@ -49,8 +49,18 @@ namespace FuelQuoteApplication14.Controllers
             Models.FuelQuoteDBEntities5 db = new FuelQuoteDBEntities5();
             Quote q1 = new Quote();
             var id = (int)System.Web.HttpContext.Current.Session["userID"];
-            var c = db.Quote.Where(a => a.Id == id);
+            var c = db.Quote.Where(a => a.Id == id).OrderBy(a=>a.Delivery_date);
             return View(c);
+        }
+
+        
+        public ActionResult Remove_quote(Quote i)
+        {
+            Models.FuelQuoteDBEntities5 db = new Models.FuelQuoteDBEntities5();
+            Quote q = db.Quote.Find(i.Quote_id);
+            db.Quote.Remove(q);
+            db.SaveChanges();
+            return RedirectToAction("Quote_history");
         }
     }
 }

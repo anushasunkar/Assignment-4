@@ -40,10 +40,13 @@
                 background-color: #04AA6D;
                 color: white;
                 padding: 14px 20px;
-                margin: 8px 0;
+                margin-left: 40px;
+                margin-top: 10px;
                 border: none;
                 cursor: pointer;
-                width: 100%;
+                width: 40%;
+                display: inline-block;
+                justify-content: center;
             }
 
                 button:hover {
@@ -95,29 +98,6 @@
 
         <h2 class="heading">Registration Form</h2>
 
-        <form role="form" asp-controller="Login" asp-action="Register" method="post">
-
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" asp-for="Username" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" asp-for="Password" required>
-
-                <label for="psw"><b>Re-Enter Password</b></label>
-                <input type="password" placeholder="Re-Enter Password" asp-for="repassword" required>
-
-                <button type="submit">Register</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-
-            <div class="container signin">
-                <p>Already have an account? <a asp-area="" asp-controller="Login" asp-action="LoginView">Sign in</a>.</p>
-            </div>
-        </form>
-
 
         @using (Html.BeginForm("Save_details","Login",FormMethod.Post))
             {
@@ -136,8 +116,8 @@
 
             <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
 
-            <input type="submit" name="name" value="Register">
-            <input type="reset" name="name" value="Clear">
+            <button type="submit" name="name" value="Login">Submit</button>
+            <button type="reset" name="name" value="Clear">Clear</button>
             <label>
 
 

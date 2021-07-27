@@ -21,24 +21,24 @@
             border: 3px solid #000000;
             background-color: #FFFFFFAA;
             width: 80%;
-        }
-
-        main {
-            padding-left: 17.5%;
+            margin: 50px;
+            padding: 30px;
         }
 
         * {
             box-sizing: border-box;
         }
 
+        main {
+            padding-left: 17.5%;
+        }
         /* Add padding to containers */
         .container {
-            padding: 16px;
             background-color: white;
         }
 
         /* Full-width input fields */
-        input[type=text], input[type=password] {
+        input[type=text], input[type=password],input[type=number] {
             width: 100%;
             padding: 15px;
             margin: 5px 0 22px 0;
@@ -47,6 +47,14 @@
             background: #f1f1f1;
         }
 
+        #date {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
             input[type=text]:focus, input[type=password]:focus {
                 background-color: #ddd;
                 outline: none;
@@ -61,36 +69,13 @@
         /* Set a style for the submit button */
         .registerbtn {
             background-color: #04AA6D;
-            color: #ffffff;
+            color: white;
             padding: 14px 20px;
-            margin: 8px 0;
+            margin: 8px 180px;
             border: none;
             cursor: pointer;
-            width: 100%;
-            align: center;
-        }
-
-            .registerbtn:hover {
-                opacity: 0.8;
-            }
-
-        /* Add a blue text color to links */
-
-
-
-        /* Set a grey background color and center the text of the "sign in" section */
-        .signin {
-            background-color: #f1f1f1;
-            text-align: center;
-        }
-
-        input[type=text], input[type=password], input[type=number], input[type=date] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
+            width: 60%;
+            float: center;
         }
     </style>
 
@@ -112,15 +97,15 @@
         <br>
         <label for="deliveryaddress"><b>Delivery Address</b></label>
 
-        @Html.TextBoxFor(model => model.Address)
+        @Html.TextBoxFor(model => model.Address ,new { @readonly="readonly"})
 
         <label for="deliverydate"><b>Delivery Date</b></label>
       //  <br /><div hidden> @Html.TextBoxFor(model => model.Delivery_date, new { @type = "datetime", @id = "delivery_date" })</div>
       <br>
-        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = DateTime.Now.AddDays(7), @class = "form-control datepicker" } })
+        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = DateTime.Now.AddDays(7),@placeholder="Provide the date in MM/dd/YYYY format" ,@id="date", @class = "form-control datepicker" } })
 
         //<input type="date" id="delivery_date1" name="date" class="form-control datepicker" required>
-
+        <br>
         <label for="suggestedpricepergallon"><b>Suggested Price / gallon</b></label>
         <br>
         <input type="number" name="suggestedpricepergallon" id="suggestedpricepergallon1" value="2" onChange="totalamount();" readonly>

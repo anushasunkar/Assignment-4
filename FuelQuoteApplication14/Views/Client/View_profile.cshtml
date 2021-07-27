@@ -19,6 +19,9 @@
             border: 3px solid #000000;
             background-color: #FFFFFFAA;
             width: 80%;
+            margin:50px;
+            padding:30px;
+            
         }
 
         * {
@@ -30,7 +33,8 @@
         }
         /* Add padding to containers */
         .container {
-            padding: 16px;
+            
+           
             background-color: white;
         }
 
@@ -60,52 +64,57 @@
             background-color: #04AA6D;
             color: white;
             padding: 14px 20px;
-            margin: 8px 0;
+            margin: 8px 180px;
             border: none;
             cursor: pointer;
-            width: 100%;
-            align: center;
+            width: 60%;
+            float:center;
         }
     </style>
 </head>
 <body>
-    <form role="form" asp-action="ProfileManagement" asp-controller="Login" method="post">
-        <div class="container">
-            <h1>Here is your profile</h1>
-            <hr>
 
-            <label for="fullname"><b>Full Name</b></label>
-            <br>
-            @Html.TextBoxFor(modeItem => modeItem.FullName, new { @readonly = "readonly" })
+    @using (Html.BeginForm("Edit_profile", "Client", FormMethod.Post))
+    {
+        
+                <h3>Here is your profile</h3>
+                <hr>
 
-            <br>
-            <label for="address1"><b>Address 1</b></label>
-            <br>
-            @Html.TextBoxFor(modeItem => modeItem.Address1, new { @readonly = "readonly" })
+                <label for="fullname"><b>Full Name</b></label>
+                <br>
+                @Html.TextBoxFor(modeItem => modeItem.FullName, new { @readonly = "readonly" })
 
-            <br>
-            <label for="address2"><b>Address 2</b></label>
-            <br>
-            @Html.TextBoxFor(modeItem => modeItem.Address2, new { @readonly = "readonly" })
+                <br>
+                <label for="address1"><b>Address 1</b></label>
+                <br>
+                @Html.TextBoxFor(modeItem => modeItem.Address1, new { @readonly = "readonly" })
 
-            <br>
-            <label for="city"><b>City</b></label>
-            @Html.TextBoxFor(modeItem => modeItem.City, new { @readonly = "readonly" })
+                <br>
+                <label for="address2"><b>Address 2</b></label>
+                <br>
+                @Html.TextBoxFor(modeItem => modeItem.Address2, new { @readonly = "readonly" })
 
-            <label for="state"><b>State</b></label>
-            <br>
-            @Html.TextBoxFor(modeItem => modeItem.State, new { @readonly = "readonly" })
+                <br>
+                <label for="city"><b>City</b></label>
+                @Html.TextBoxFor(modeItem => modeItem.City, new { @readonly = "readonly" })
+
+                <label for="state"><b>State</b></label>
+                <br>
+                @Html.TextBoxFor(modeItem => modeItem.State, new { @readonly = "readonly" })
 
 
-            <br><label for="zip"><b>ZipCode</b></label></br>
+                <br><label for="zip"><b>ZipCode</b></label>
 
 
-            @Html.TextBoxFor(modeItem => modeItem.ZipCode, new { @readonly = "readonly" })
+                @Html.TextBoxFor(modeItem => modeItem.ZipCode, new { @readonly = "readonly" })
 
-        </div>
 
-    </form>
+                <button type="submit" class="registerbtn">Edit Profile</button>
 
-</body>
+            
+
+        
+    }
+    </body>
 </html>
 

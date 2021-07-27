@@ -44,7 +44,7 @@ namespace FuelQuoteApplication14.Controllers
             db.Client_Info.Add(c1);
             db.SaveChanges();
 
-            return RedirectToAction("Home", "Login");
+            return RedirectToAction("Home", "Client");
         }
         public ActionResult ViewProfile()
         {
@@ -68,6 +68,22 @@ namespace FuelQuoteApplication14.Controllers
 
 
             return View("View_profile", c1);
+        }
+
+        public ActionResult Edit_profile(Client_Info c)
+        {
+            return View(c);
+        }
+
+        public ActionResult Client_edit_save(Client_Info c)
+        {
+            Models.FuelQuoteDBEntities3 db = new Models.FuelQuoteDBEntities3();
+            Client_Info c1 = new Client_Info();
+            var id = (int)System.Web.HttpContext.Current.Session["userID"];
+            c.Id = id;
+            db.Entry(c).State = System.Data.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("ViewProfile");
         }
     }
 }

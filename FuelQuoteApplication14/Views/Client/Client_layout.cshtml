@@ -68,8 +68,8 @@
             <li>
         </ul>
         <ul>
-            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="Home1"?"active nav-item":"nav-item")">@Html.ActionLink("Home", "Home", "Login", new { area = "" }, new { @class = "nav-link" })</li>
-            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="ShowHistory"?"active nav-item":"nav-item")">@Html.ActionLink("Quote History", "Quote_history", "Quote", new { area = "" }, new { @class = "nav-link" })</li>
+            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="Home"?"active nav-item":"nav-item")">@Html.ActionLink("Home", "Home", "Client", new { area = "" }, new { @class = "nav-link" })</li>
+            <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="Quote_history"?"active nav-item":"nav-item")">@Html.ActionLink("Quote History", "Quote_history", "Quote", new { area = "" }, new { @class = "nav-link" })</li>
             <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="ViewProfile"?"active nav-item":"nav-item")">@Html.ActionLink("Profile", "ViewProfile", "Client", new { area = "" }, new { @class = "nav-link" })</li>
             <li class="@(ViewContext.RouteData.Values["Action"].ToString()=="Generate_quote"?"active nav-item":"nav-item")">@Html.ActionLink("Quote Generator", "Generate_quote", "Quote", new { area = "" }, new { @class = "nav-link" })</li>
 
