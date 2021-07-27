@@ -19,10 +19,12 @@ namespace FuelQuoteApplication14.Controllers
         [HttpPost]
         public ActionResult Autherize(FuelQuoteApplication14.Models.UserCredential model)
         {
+            FuelQuoteDBEntities3 db_client = new FuelQuoteDBEntities3();
+
             using(FuelQuoteDBEntities1 db=new FuelQuoteDBEntities1())
             {
                 var userdetails = db.UserCredentials.Where(x => x.Username == model.Username && x.Password == model.Password).FirstOrDefault();
-                Session["userID"] = userdetails.Id;
+                var client = db_client.Client_Info.Where(x => x.Id == userdetails.Id).FirstOrDefault();
                 if (userdetails == null)
                 {
                     model.LoginErrorMessage = "Wrong username or password";
@@ -30,6 +32,11 @@ namespace FuelQuoteApplication14.Controllers
                 }
                 else
                 {
+                    if(client==null)
+                    {
+                        Session["userID"] = userdetails.Id;
+                        return RedirectToAction("Client_info", "Client");
+                    }
                     Session["userID"] = userdetails.Id;
                     return RedirectToAction("Home", "Client");
                 }
