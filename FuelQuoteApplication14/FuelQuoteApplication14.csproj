@@ -129,6 +129,7 @@
       <DependentUpon>Quote.edmx</DependentUpon>
       <LastGenOutput>Quote1.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\logo.jpeg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

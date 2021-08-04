@@ -18,17 +18,43 @@ namespace FuelQuoteApplication14.Models
     {
         public int Id { get; set; }
         [DisplayName("User Name")]
-        [Required(ErrorMessage ="This field is required.")]
-        
+        [Required(ErrorMessage ="User Name is required.")]
+        [RegularExpression(@"^[A-Za-z][A-Za-z0-9._]+$",ErrorMessage ="Please enter valid User Name")]    
         public string Username { get; set; }
         
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "This field is required.")]
+        [DisplayName("Password")]
+        [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
 
+        
         public string LoginErrorMessage { get; set; }
 
        
         
+    }
+
+    public partial class UserCredential_register
+    {
+        public int Id { get; set; }
+        [DisplayName("User Name")]
+        [Required(ErrorMessage = "User Name is required.")]
+        [RegularExpression(@"^[A-Za-z][A-Za-z0-9._]+$", ErrorMessage = "Please enter valid User Name")]
+        public string Username { get; set; }
+
+        [DataType(DataType.Password)]
+        [DisplayName("Password")]
+        [Required(ErrorMessage = "Password is required.")]
+        public string Password { get; set; }
+
+        [DisplayName("Confirm Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]
+        public string Confirm_Password { get; set; }
+
+        public string LoginErrorMessage { get; set; }
+
+
+
     }
 }

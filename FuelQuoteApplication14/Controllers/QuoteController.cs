@@ -22,26 +22,30 @@ namespace FuelQuoteApplication14.Controllers
         }
         public ActionResult Quote_save(Quote q)
         {
-            Models.FuelQuoteDBEntities5 db = new FuelQuoteDBEntities5();
-            Quote q1 = new Quote();
-            q1.Gallons_requested = q.Gallons_requested;
-            q1.Address = q.Address;
-            q1.Delivery_date = Convert.ToDateTime(q.Delivery_date);
-            q1.Total_amount = q.Total_amount;
-            q1.Id = (int)System.Web.HttpContext.Current.Session["userID"];
-            q1.price_per_gallon = q.price_per_gallon;
-            if(db.Quote.OrderByDescending(p => p.Quote_id).FirstOrDefault()!=null)
+            if (ModelState.IsValid)
             {
-                q1.Quote_id = db.Quote.OrderByDescending(p => p.Quote_id).FirstOrDefault().Quote_id + 1;
-            }
-            else
-            {
-                q1.Quote_id = 1;
-            }
-            db.Quote.Add(q1);
-            db.SaveChanges();
+                Models.FuelQuoteDBEntities5 db = new FuelQuoteDBEntities5();
+                Quote q1 = new Quote();
+                q1.Gallons_requested = q.Gallons_requested;
+                q1.Address = q.Address;
+                q1.Delivery_date = Convert.ToDateTime(q.Delivery_date);
+                q1.Total_amount = q.Total_amount;
+                q1.Id = (int)System.Web.HttpContext.Current.Session["userID"];
+                q1.price_per_gallon = q.price_per_gallon;
+                if (db.Quote.OrderByDescending(p => p.Quote_id).FirstOrDefault() != null)
+                {
+                    q1.Quote_id = db.Quote.OrderByDescending(p => p.Quote_id).FirstOrDefault().Quote_id + 1;
+                }
+                else
+                {
+                    q1.Quote_id = 1;
+                }
+                db.Quote.Add(q1);
+                db.SaveChanges();
 
-            return RedirectToAction("Home", "Client");
+                return RedirectToAction("Home", "Client");
+            }
+            return View("Generate_quote", q);
         }
 
         public ActionResult Quote_history()

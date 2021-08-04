@@ -11,12 +11,19 @@ namespace FuelQuoteApplication14.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     public partial class Quote
     {
         public double Quote_id { get; set; }
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Required field is mandatory")]
         public double Gallons_requested { get; set; }
+
+        [Required(ErrorMessage ="This field is mandatory")]
+        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
+        [DataType(DataType.Date)]
         public System.DateTime Delivery_date { get; set; }
         public double Total_amount { get; set; }
         public string Address { get; set; }

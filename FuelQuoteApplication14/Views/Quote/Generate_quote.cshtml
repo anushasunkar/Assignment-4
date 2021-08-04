@@ -92,6 +92,7 @@
         <br>
         <input type="number" placeholder="Enter number of gallons required" name="gallonsrequested" id="gallonsrequested1" onChange="totalamount();" min="1" required>
         <div hidden>@Html.TextBoxFor(model => model.Gallons_requested, new { @type = "number", @id = "gallonsrequested" })</div>
+        
 
         <span asp-validation-for="GallonsRequested" class="text-danger"></span>
         <br>
@@ -102,10 +103,12 @@
         <label for="deliverydate"><b>Delivery Date</b></label>
       //  <br /><div hidden> @Html.TextBoxFor(model => model.Delivery_date, new { @type = "datetime", @id = "delivery_date" })</div>
       <br>
-        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = DateTime.Now.AddDays(7),@placeholder="Provide the date in MM/dd/YYYY format" ,@id="date", @class = "form-control datepicker" } })
-
+        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = Model.Delivery_date.ToString("MM-dd-yyyy"),@placeholder="Provide the date in MM/dd/YYYY format" ,@id="date", @class = "form-control datepicker" } })
+        <div style="color:red;font-size:medium;">@Html.ValidationMessageFor(model=>model.Delivery_date)<br></div>
+        
+        
         //<input type="date" id="delivery_date1" name="date" class="form-control datepicker" required>
-        <br>
+        
         <label for="suggestedpricepergallon"><b>Suggested Price / gallon</b></label>
         <br>
         <input type="number" name="suggestedpricepergallon" id="suggestedpricepergallon1" value="2" onChange="totalamount();" readonly>

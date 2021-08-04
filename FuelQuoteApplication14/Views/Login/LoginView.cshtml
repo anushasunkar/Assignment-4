@@ -14,10 +14,10 @@
                 width: 40%;
                 padding-left: 30%;
                 padding-top: 7%;
-                background-image: url(~/images/images.jpeg);
+                background-image: url('@Url.Content("~/Views/logo.jpeg")');
                 background-repeat: no-repeat;
                 background-size: cover;
-                justify-content:center;
+                justify-content: center;
             }
 
             form {
@@ -100,7 +100,7 @@
         </style>
     </head>
 
-    <body style="background-image: url()">
+    <body>
 
         <h2 class="heading">Login Form</h2>
 
@@ -108,23 +108,26 @@
 @using (Html.BeginForm("Autherize","Login",FormMethod.Post))
 {
     <form>
-            <div class="container">
-                <label for="uname">@Html.LabelFor(model => model.Username)</label>
-                
-                <div type="text"> @Html.EditorFor(model => model.Username)</div>
-                
+        <div class="container">
+            <label for="uname">@Html.LabelFor(model => model.Username)</label>
 
-                <label for="psw">@Html.LabelFor(model => model.Password)</label>
-                <div>@Html.EditorFor(model => model.Password)</div>
+            <div type="text"> @Html.EditorFor(model => model.Username)</div>
+            <label class="field-validation-error" style="color:red;">@Html.ValidationMessageFor(model => model.Username)</label>
 
-                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+            <br>
+            <label for="psw">@Html.LabelFor(model => model.Password)</label>
+            <div>@Html.EditorFor(model => model.Password)</div>
+            <label class="field-validation-error" style="color:red;">@Html.ValidationMessageFor(model => model.Password)</label>
+            <br>
 
-                <button type="submit" name="name" value="Login">Login</button>
-                <button type="reset" name="name" value="Clear">Clear</button>
-                <label>
-                     
+            <label class="field-validation-error" style="color:red;">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+            <br>
+            <button type="submit" name="name" value="Login">Login</button>
+            <button type="reset" name="name" value="Clear">Clear</button>
+            <label>
 
-            </div>
+
+        </div>
         <div style="margin-left:150px; margin-bottom:30px;">
 New User..? Click here to register...@Html.ActionLink("Register","RegisterView","Login")
         

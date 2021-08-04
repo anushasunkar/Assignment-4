@@ -1,4 +1,4 @@
-﻿@model FuelQuoteApplication14.Models.UserCredential
+﻿@model FuelQuoteApplication14.Models.UserCredential_register
 @{
     ViewBag.Title = "RegisterView";
 }
@@ -16,9 +16,11 @@
                 background-image: url('images.jpeg');
                 background-repeat: no-repeat;
                 background-size: cover;
+                justify-content:center;
             }
 
             form {
+                padding:5%;
                 border: 3px solid #000000;
                 background-color: #FFFFFFAA;
             }
@@ -40,11 +42,11 @@
                 background-color: #04AA6D;
                 color: white;
                 padding: 14px 20px;
-                margin-left: 40px;
+                margin-left: 15%;
                 margin-top: 10px;
                 border: none;
                 cursor: pointer;
-                width: 40%;
+                width:30%;
                 display: inline-block;
                 justify-content: center;
             }
@@ -102,26 +104,30 @@
         @using (Html.BeginForm("Save_details","Login",FormMethod.Post))
             {
     <form>
-        <div class="container">
+        <div>
+        <label class="container">
             <label for="uname">@Html.LabelFor(model => model.Username)</label>
 
             <div type="text"> @Html.EditorFor(model => model.Username)</div>
-
+            <label class="field-validation-error" style="color:red;">@Html.ValidationMessageFor(model => model.Username)</label>
 
             <label for="psw">@Html.LabelFor(model => model.Password)</label>
             <div>@Html.EditorFor(model => model.Password)</div>
+            <label class="field-validation-error" style="color:red;">@Html.ValidationMessageFor(model => model.Password)</label>
 
-            <label for="psw">Re-Enter Password:</label>
-            <div>@Html.EditorFor(model => model.Password)</div>
+            <label for="psw">@Html.LabelFor(model => model.Confirm_Password)</label>
+            <div>@Html.EditorFor(model => model.Confirm_Password)</div>
+            <label class="field-validation-error" style="color:red;">@Html.ValidationMessageFor(model => model.Confirm_Password,"",new { @class = "error" })</label>
+            <br>
 
-            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
-
+            <label class="field-validation-error" style="color:red;">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+            <br>
             <button type="submit" name="name" value="Login">Submit</button>
             <button type="reset" name="name" value="Clear">Clear</button>
-            <label>
 
 
-        </div>
+            </div>
+
     </form>
             }
 
