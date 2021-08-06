@@ -93,5 +93,29 @@ namespace FuelQuoteApplication14.Controllers
             }
             return View("Edit_profile", c);
         }
+
+        public bool ClientProfileDataValidation(Client_Info data)
+        {
+            bool flag = false;
+            if ((data.FullName.Length <= 50) && (data.FullName != String.Empty))
+            {
+                if (((data.Address1.Length <= 100) && (data.Address1 != String.Empty)) && (data.Address2.Length <= 100) && (data.Address1 != String.Empty))
+                {
+                    if ((data.City.Length <= 100) && (data.City != String.Empty))
+                    {
+                        if (data.ZipCode <= 999999999 && data.ZipCode >= 00000)
+                        {
+                            flag = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                flag = false;
+            }
+
+            return flag;
+        }
     }
 }

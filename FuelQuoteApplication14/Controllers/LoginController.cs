@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using FuelQuoteApplication14.Models;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.IO;
 
@@ -133,6 +134,27 @@ namespace FuelQuoteApplication14.Controllers
                 //return View("Register", user);
             //}
             
+        }
+
+        public bool RegisterDataValidation(UserCredential_register registerinfo)
+        {
+            bool flag = false;
+            if ((registerinfo.Username.Length <= 50) && (registerinfo.Username != String.Empty) && (Regex.IsMatch(registerinfo.Username, @"^[A-Za-z0-9._]+$")))
+            {
+                if ((Regex.IsMatch(registerinfo.Password, @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")) && (registerinfo.Password != String.Empty))
+                {
+                    if (registerinfo.Password == registerinfo.Confirm_Password)
+                    {
+                        flag = true;
+                    }
                 }
+            }
+            else
+            {
+                flag = false;
+            }
+
+            return flag;
+        }
     }
 }
