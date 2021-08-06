@@ -90,30 +90,31 @@
 
         <label for="gallonsrequested"><b>Gallons Requested</b></label>
         <br>
-        
+
         <div>@Html.TextBoxFor(model => model.Gallons_requested, new { @type = "number", @id = "gallonsrequested" })</div>
-        
+        <div style="color:red;font-size:medium;">@Html.ValidationMessageFor(model => model.Gallons_requested)<br></div>
+
 
         <span asp-validation-for="GallonsRequested" class="text-danger"></span>
-        
+
         <label for="deliveryaddress"><b>Delivery Address</b></label>
 
-        @Html.TextBoxFor(model => model.Address ,new { @readonly="readonly"})
+        @Html.TextBoxFor(model => model.Address, new { @readonly = "readonly" })
 
         <label for="deliverydate"><b>Delivery Date</b></label>
-      
-      <br>
-        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = Model.Delivery_date.ToString("MM-dd-yyyy"),@placeholder="Provide the date in MM/dd/YYYY format" ,@id="date", @class = "form-control datepicker" } })
-        <div style="color:red;font-size:medium;">@Html.ValidationMessageFor(model=>model.Delivery_date)<br></div>
-        
-        
+
+        <br>
+        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new { @Value = Model.Delivery_date.ToString("MM-dd-yyyy"), @placeholder = "Provide the date in MM/dd/YYYY format", @id = "date", @class = "form-control datepicker" } })
+        <div style="color:red;font-size:medium;">@Html.ValidationMessageFor(model => model.Delivery_date)<br></div>
+
+
 
 
         <br>
         <button type="submit" class="registerbtn">Generate Quote</button>
 
     }
-    
+
 
 </body>
 </html>

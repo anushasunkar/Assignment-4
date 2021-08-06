@@ -26,25 +26,29 @@ namespace FuelQuoteApplication14.Controllers
 
         public ActionResult Client_info_save(Client_Info c)
         {
-            Models.FuelQuoteDBEntities3 db = new FuelQuoteDBEntities3();
-            Models.FuelQuoteDBEntities1 db1 = new FuelQuoteDBEntities1();
-            Client_Info c1 = new Client_Info();
-            c1.FullName = c.FullName;
-            c1.Address1 = c.Address1;
-            c1.Address2 = c.Address2;
-            c1.City = c.City;
-            c1.State = c.State;
-            c1.ZipCode = c.ZipCode;
-            c1.Id = (int)System.Web.HttpContext.Current.Session["userid"];
+            if (ModelState.IsValid)
+            {
+                Models.FuelQuoteDBEntities3 db = new FuelQuoteDBEntities3();
+                Models.FuelQuoteDBEntities1 db1 = new FuelQuoteDBEntities1();
+                Client_Info c1 = new Client_Info();
+                c1.FullName = c.FullName;
+                c1.Address1 = c.Address1;
+                c1.Address2 = c.Address2;
+                c1.City = c.City;
+                c1.State = c.State;
+                c1.ZipCode = c.ZipCode;
+                c1.Id = (int)System.Web.HttpContext.Current.Session["userid"];
 
-            HttpCookie cookie = new HttpCookie("WTR");
-            cookie["id"] = c1.Id.ToString();
-            Response.Cookies.Add(cookie);
+                HttpCookie cookie = new HttpCookie("WTR");
+                cookie["id"] = c1.Id.ToString();
+                Response.Cookies.Add(cookie);
 
-            db.Client_Info.Add(c1);
-            db.SaveChanges();
+                db.Client_Info.Add(c1);
+                db.SaveChanges();
 
-            return RedirectToAction("Home", "Client");
+                return RedirectToAction("Home", "Client");
+            }
+            return View("Client_info", c);
         }
         public ActionResult ViewProfile()
         {
@@ -77,13 +81,17 @@ namespace FuelQuoteApplication14.Controllers
 
         public ActionResult Client_edit_save(Client_Info c)
         {
-            Models.FuelQuoteDBEntities3 db = new Models.FuelQuoteDBEntities3();
-            Client_Info c1 = new Client_Info();
-            var id = (int)System.Web.HttpContext.Current.Session["userID"];
-            c.Id = id;
-            db.Entry(c).State = System.Data.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("ViewProfile");
+            if (ModelState.IsValid)
+            {
+                Models.FuelQuoteDBEntities3 db = new Models.FuelQuoteDBEntities3();
+                Client_Info c1 = new Client_Info();
+                var id = (int)System.Web.HttpContext.Current.Session["userID"];
+                c.Id = id;
+                db.Entry(c).State = System.Data.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ViewProfile");
+            }
+            return View("Edit_profile", c);
         }
     }
 }
