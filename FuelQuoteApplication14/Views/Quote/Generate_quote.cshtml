@@ -82,7 +82,7 @@
 
 </head>
 <body>
-    @using (Html.BeginForm("Quote_save", "Quote", FormMethod.Post))
+    @using (Html.BeginForm("Quote_display", "Quote", FormMethod.Post))
     {
 
 
@@ -90,54 +90,30 @@
 
         <label for="gallonsrequested"><b>Gallons Requested</b></label>
         <br>
-        <input type="number" placeholder="Enter number of gallons required" name="gallonsrequested" id="gallonsrequested1" onChange="totalamount();" min="1" required>
-        <div hidden>@Html.TextBoxFor(model => model.Gallons_requested, new { @type = "number", @id = "gallonsrequested" })</div>
+        
+        <div>@Html.TextBoxFor(model => model.Gallons_requested, new { @type = "number", @id = "gallonsrequested" })</div>
         
 
         <span asp-validation-for="GallonsRequested" class="text-danger"></span>
-        <br>
+        
         <label for="deliveryaddress"><b>Delivery Address</b></label>
 
         @Html.TextBoxFor(model => model.Address ,new { @readonly="readonly"})
 
         <label for="deliverydate"><b>Delivery Date</b></label>
-      //  <br /><div hidden> @Html.TextBoxFor(model => model.Delivery_date, new { @type = "datetime", @id = "delivery_date" })</div>
+      
       <br>
         @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {@Value = Model.Delivery_date.ToString("MM-dd-yyyy"),@placeholder="Provide the date in MM/dd/YYYY format" ,@id="date", @class = "form-control datepicker" } })
         <div style="color:red;font-size:medium;">@Html.ValidationMessageFor(model=>model.Delivery_date)<br></div>
         
         
-        //<input type="date" id="delivery_date1" name="date" class="form-control datepicker" required>
-        
-        <label for="suggestedpricepergallon"><b>Suggested Price / gallon</b></label>
-        <br>
-        <input type="number" name="suggestedpricepergallon" id="suggestedpricepergallon1" value="2" onChange="totalamount();" readonly>
-        <div hidden>@Html.TextBoxFor(model => model.price_per_gallon, new { @type = "number", @id = "suggestedpricepergallon" })</div>
-        <br>
-
-        <label for="totalamountdue"><b>Total Amount Due</b></label>
-        <div>@Html.TextBoxFor(model => model.Total_amount, new { @type = "number", @id = "totalamountdue", @readonly = "readonly" })</div>
-
 
 
         <br>
         <button type="submit" class="registerbtn">Generate Quote</button>
 
     }
-    <script>
-
-        var ngallons, price, date;
-        function totalamount() {
-            ngallons = document.getElementById("gallonsrequested1").value;
-            price = document.getElementById("suggestedpricepergallon1").value;
-            result = ngallons * price;
-            document.getElementById("totalamountdue").value = result;
-            document.getElementById("gallonsrequested").value = ngallons;
-            document.getElementById("suggestedpricepergallon").value = price;
-            date = document.getElementById("delivery_date1").value;
-            document.getElementById("delivery_date").value = date;
-        }
-    </script>
+    
 
 </body>
 </html>

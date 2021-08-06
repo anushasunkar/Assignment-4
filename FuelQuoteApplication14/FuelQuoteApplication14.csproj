@@ -227,6 +227,7 @@
     <Content Include="Views\Quote\Generate_quote.cshtml" />
     <Content Include="Views\Quote\Quote_history.cshtml" />
     <Content Include="Views\Client\Edit_profile.cshtml" />
+    <Content Include="Views\Quote\Quote_display.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
