@@ -22,6 +22,7 @@ namespace FuelQuoteApplication14.Controllers
         public ActionResult Client_info()
         {
             return View();
+
         }
 
         public ActionResult Client_info_save(Client_Info c)
