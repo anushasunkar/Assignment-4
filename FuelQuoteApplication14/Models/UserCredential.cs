@@ -17,10 +17,15 @@ namespace FuelQuoteApplication14.Models
     public partial class UserCredential
     {
         public int Id { get; set; }
-
+        [DisplayName("User Name")]
+        [Required(ErrorMessage ="User Name is required")]
+        [RegularExpression(@"^[A-Za-z0-9._]+$",ErrorMessage ="Please enter valid User Name")]    
         public string Username { get; set; }
         
-
+        [DataType(DataType.Password)]
+        [DisplayName("Password")]
+        [Required(ErrorMessage = "Password is required")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", ErrorMessage = "Password must contain at least one  number and one uppercase and lowercase letter and one special character, and at least 8 or more characters")]
         public string Password { get; set; }
 
         
@@ -33,17 +38,22 @@ namespace FuelQuoteApplication14.Models
     public partial class UserCredential_register
     {
         public int Id { get; set; }
-  
+        [DisplayName("User Name")]
+        [Required(ErrorMessage = "User Name is required.")]
+        [RegularExpression(@"^[A-Za-z0-9._]+$", ErrorMessage = "Please enter valid User Name")]
         public string Username { get; set; }
 
+        [DataType(DataType.Password)]
+        [DisplayName("Password")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", ErrorMessage = "Password must contain at least one  number and one uppercase and lowercase letter and one special character, and at least 8 or more characters")]
+        [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
 
-
+        [DisplayName("Confirm Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Password and Confirm Password must match.")]
         public string Confirm_Password { get; set; }
 
         public string LoginErrorMessage { get; set; }
-
-
-
     }
 }

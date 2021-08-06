@@ -24,8 +24,7 @@ namespace FuelQuoteApplication14.Controllers
             try
             {
                 FuelQuoteDBEntities3 db_client = new FuelQuoteDBEntities3();
-                if (ModelState.IsValid)
-                {
+                
 
                     using (FuelQuoteDBEntities1 db = new FuelQuoteDBEntities1())
                     {
@@ -50,7 +49,7 @@ namespace FuelQuoteApplication14.Controllers
                             return RedirectToAction("Home", "Client");
                         }
 
-                    }
+                    
                 }
                 return View("LoginView", model);
             }
@@ -99,8 +98,8 @@ namespace FuelQuoteApplication14.Controllers
         public ActionResult Save_details(UserCredential_register user)
         {
             //sqlConnection con = new SqlConnection()
-            try
-            {
+            //try
+            //{
 
                 if (ModelState.IsValid)
                 {
@@ -127,12 +126,12 @@ namespace FuelQuoteApplication14.Controllers
                     return RedirectToAction("Client_info", "Client");
                 }
                 return View("Register", user);
-            }
-            catch(Exception)
-            {
-                user.LoginErrorMessage = "UserName already exists";
-                return View("Register", user);
-            }
+            //}
+            //catch(Exception)
+            //{
+                //user.LoginErrorMessage = "UserName already exists";
+                //return View("Register", user);
+            //}
             
                 }
     }

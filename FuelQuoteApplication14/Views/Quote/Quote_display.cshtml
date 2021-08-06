@@ -75,9 +75,10 @@
             margin: 8px 180px;
             border: none;
             cursor: pointer;
-            width: 60%;
+            width: 60%;      
             float: center;
         }
+        
     </style>
 
 
@@ -91,28 +92,28 @@
 
         <label for="gallonsrequested"><b>Gallons Requested</b></label>
         <br>
-        
+
         <div>@Html.TextBoxFor(model => model.Gallons_requested, new { @type = "number", @id = "gallons_requested", @readonly = "readonly" })</div>
 
 
         <span asp-validation-for="GallonsRequested" class="text-danger"></span>
-       
+
         <label for="deliveryaddress"><b>Delivery Address</b></label>
 
         @Html.TextBoxFor(model => model.Address, new { @readonly = "readonly" })
 
         <label for="deliverydate"><b>Delivery Date</b></label>
-        
+
         <br>
-        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new {  @placeholder = "Provide the date in MM/dd/YYYY format", @id = "date", @class = "form-control datepicker",@readonly="readonly" } })
+        @Html.EditorFor(model => model.Delivery_date, new { htmlAttributes = new { @placeholder = "Provide the date in MM/dd/YYYY format", @id = "date", @class = "form-control datepicker", @readonly = "readonly" } })
         <div style="color:red;font-size:medium;">@Html.ValidationMessageFor(model => model.Delivery_date)<br></div>
 
 
-        
+
 
         <label for="suggestedpricepergallon"><b>Price per gallon</b></label>
-        
-        <div>@Html.TextBoxFor(model => model.price_per_gallon, new { @type = "number", @id = "suggestedpricepergallon",@readonly="readonly" })</div>
+
+        <div>@Html.TextBoxFor(model => model.price_per_gallon, new { @type = "number", @id = "suggestedpricepergallon", @readonly = "readonly" })</div>
         <br>
 
         <label for="totalamountdue"><b>Total Amount Due</b></label>
@@ -121,10 +122,12 @@
 
 
         <br>
+        
         <button type="submit" class="registerbtn">Save Quote</button>
-
+        <br>
+       
     }
-  
+
 
 </body>
 </html>

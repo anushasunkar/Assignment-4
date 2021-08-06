@@ -99,6 +99,7 @@
       <DependentUpon>FuelQuoteDB.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Image\logo.png" />
     <Content Include="Models\Client_Info.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Client_Info.edmx</DependentUpon>
@@ -235,9 +236,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
