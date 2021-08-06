@@ -47,7 +47,7 @@ namespace FuelQuoteApplication14.Models
 
         [DisplayName("Zipcode")]
         [Required(ErrorMessage = "zipcode is required")]
-        [Range(00000, 999999, ErrorMessage = "zipcode should be 5-9 characters")]
+        [Range(10000, 999999999, ErrorMessage = "zipcode should be 5-9 characters")]
         public float ZipCode { get; set; }
     }
 }
