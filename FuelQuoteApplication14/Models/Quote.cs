@@ -19,6 +19,7 @@ namespace FuelQuoteApplication14.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Required field is mandatory")]
+        [Range(0001, 999999999, ErrorMessage = "Invalid amount of gallons requested")]
         public double Gallons_requested { get; set; }
 
         [Required(ErrorMessage ="This field is mandatory")]
