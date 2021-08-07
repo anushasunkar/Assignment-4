@@ -51,7 +51,7 @@ namespace FuelQuoteApplication14.Controllers
                         }
 
                     }
-                return View("LoginView", model);
+                //return View("LoginView", model);
             }
             catch(NullReferenceException)
             {
