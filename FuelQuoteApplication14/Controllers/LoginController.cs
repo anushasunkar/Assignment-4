@@ -50,8 +50,7 @@ namespace FuelQuoteApplication14.Controllers
                             return RedirectToAction("Home", "Client");
                         }
 
-                    
-                }
+                    }
                 return View("LoginView", model);
             }
             catch(NullReferenceException)
@@ -146,6 +145,7 @@ namespace FuelQuoteApplication14.Controllers
                     if (registerinfo.Password == registerinfo.Confirm_Password)
                     {
                         flag = true;
+                        int x = 2;
                     }
                 }
             }
