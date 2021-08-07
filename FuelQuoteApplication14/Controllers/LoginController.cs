@@ -97,9 +97,6 @@ namespace FuelQuoteApplication14.Controllers
         }
         public ActionResult Save_details(UserCredential_register user)
         {
-            //sqlConnection con = new SqlConnection()
-            //try
-            //{
 
                 if (ModelState.IsValid)
                 {
@@ -111,8 +108,6 @@ namespace FuelQuoteApplication14.Controllers
                     var enc = encrypt(p);
                     u.Password = enc;
 
-
-
                     var max = db.UserCredentials.OrderByDescending(P => P.Id).FirstOrDefault().Id;
 
                     u.Id = max + 1;
@@ -122,17 +117,32 @@ namespace FuelQuoteApplication14.Controllers
                     db.UserCredentials.Add(u);
                     db.SaveChanges();
 
-
                     return RedirectToAction("Client_info", "Client");
                 }
                 return View("Register", user);
-            //}
-            //catch(Exception)
-            //{
-                //user.LoginErrorMessage = "UserName already exists";
-                //return View("Register", user);
-            //}
             
         }
+
+        public bool RegisterDataValidation(UserCredential_register registerinfo)
+        {
+            bool flag = false;
+            if ((registerinfo.Username.Length <= 50) && (registerinfo.Username != String.Empty) && (Regex.IsMatch(registerinfo.Username, @"^[A-Za-z0-9._]+$")))
+            {
+                if ((Regex.IsMatch(registerinfo.Password, @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$")) && (registerinfo.Password != String.Empty))
+                {
+                    if (registerinfo.Password == registerinfo.Confirm_Password)
+                    {
+                        flag = true;
+                    }
+                }
+            }
+            else
+            {
+                flag = false;
+            }
+
+            return flag;
+        }
+
     }
 }
